@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 
 import {
   addContactRequest,
@@ -13,11 +12,10 @@ import {
   fetchContactsError,
 } from './phoneBook-actions';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 const addContact = newContact => dispatch => {
   const contact = {
-    id: uuidv4(),
     name: newContact.name,
     number: newContact.number,
   };

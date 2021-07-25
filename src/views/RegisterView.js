@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { authOperations } from '../redux/auth';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/authorization';
 
 class RegisterView extends Component {
   state = {
@@ -26,7 +26,7 @@ class RegisterView extends Component {
 
     return (
       <div>
-        <h1>Страница регистрации</h1>
+        <h1>Registration</h1>
 
         <form onSubmit={this.handleSubmit} autoComplete="off">
           <label>
@@ -66,4 +66,11 @@ class RegisterView extends Component {
   }
 }
 
-export default RegisterView;
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
+// const mapDispatchToProps = dispatch => ({
+//   onRegister: data => authOperations.register(data),
+// })
+
+export default connect(null, mapDispatchToProps)(RegisterView);

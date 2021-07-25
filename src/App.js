@@ -1,8 +1,12 @@
 import { Component, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import LoaderSpiner from './components/Loader';
 import Layout from './components/Layout';
 import routes from './routes';
+import { authOperations } from './redux/authorization';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 const HomeView = lazy(() =>
   import('./views/HomeView.js' /* webpackChunkName: "home-view" */),
@@ -18,12 +22,20 @@ const RegisterView = lazy(() =>
 );
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onRefreshUser();
+  }
+
   render() {
     return (
       <Layout>
         <Suspense fallback={<LoaderSpiner />}>
           <Switch>
-            <Route path={routes.contacts} component={PhonebookView} />
+            <PrivateRoute
+              path={routes.contacts}
+              component={PhonebookView}
+              redirectTo={routes.login}
+            />
             <Route path={routes.home} exact component={HomeView} />
             <Route path={routes.login} exact component={LogInView} />
             <Route path={routes.register} exact component={RegisterView} />
@@ -34,4 +46,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  onRefreshUser: authOperations.getCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);

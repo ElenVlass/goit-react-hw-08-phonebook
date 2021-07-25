@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ContactList from './ContactList';
-import { phoneBookSelectors, operations } from '../../redux';
+import { phoneBookSelectors, operations } from '../../redux/phonebook';
 
 const mapStateToProps = state => ({
   list: phoneBookSelectors.getSpecifiedContacts(state),

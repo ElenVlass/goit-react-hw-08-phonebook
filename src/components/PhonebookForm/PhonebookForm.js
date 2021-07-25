@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './PhonebookForm.module.scss';
-import { operations, phoneBookSelectors } from '../../redux';
+import { operations, phoneBookSelectors } from '../../redux/phonebook';
 
 class PhonebookForm extends Component {
   static defaultProps = {

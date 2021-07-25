@@ -5,7 +5,7 @@ const HomeView = () => {
   return (
     <div className="lendosOvervay">
       <h1 className="lendosTitle">
-        keep all your contacts in our convenient phonebook
+        keep all your contacts in the convenient phonebook
       </h1>
     </div>
   );

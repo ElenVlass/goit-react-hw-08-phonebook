@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.scss';
+import styles from './AuthorizationMenu.module.scss';
 import routes from '../../routes';
 
-const NavMenu = () => (
+const AuthorizationMenu = () => (
   <ul className={styles.NavList}>
     <li className={styles.List}>
       <NavLink
@@ -26,4 +26,4 @@ const NavMenu = () => (
   </ul>
 );
 
-export default NavMenu;
+export default AuthorizationMenu;

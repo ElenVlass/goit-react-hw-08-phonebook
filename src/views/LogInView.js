@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { authOperations } from '../redux/auth';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/authorization';
 
 class LogInView extends Component {
   state = {
@@ -17,7 +17,7 @@ class LogInView extends Component {
 
     this.props.onLogin(this.state);
 
-    this.setState({ name: '', email: '', password: '' });
+    this.setState({ email: '', password: '' });
   };
 
   render() {
@@ -55,9 +55,8 @@ class LogInView extends Component {
   }
 }
 
-// const mapDispatchToProps = {
-//   onLogin: authOperations.logIn,
-// };
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
 
-// export default connect(null, mapDispatchToProps)(LogInView);
-export default LogInView;
+export default connect(null, mapDispatchToProps)(LogInView);

@@ -1,11 +1,13 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
+
 import styles from './AppBar.module.scss';
 import logo from '../../icons/logo.png';
-import { CSSTransition } from 'react-transition-group';
-
 import Navigation from '../Navigation';
-import NavMenu from '../AuthorizationMenu/NavMenu';
+import AuthorizationMenu from '../AuthorizationMenu';
 import UserMenu from '../UserMenu';
+import { authSelectors } from '../../redux/authorization';
 
 const AppBar = ({ isAuthenticated }) => (
   <CSSTransition
@@ -22,12 +24,15 @@ const AppBar = ({ isAuthenticated }) => (
       <div className={styles.Navigation}>
         <Navigation />
         <div className={styles.BarMenu}>
-          {/* {isAuthenticated ? <UserMenu /> : <NavMenu />} */}
-          {false ? <UserMenu /> : <NavMenu />}
+          {isAuthenticated ? <UserMenu /> : <AuthorizationMenu />}
         </div>
       </div>
     </header>
   </CSSTransition>
 );
 
-export default AppBar;
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(AppBar);
