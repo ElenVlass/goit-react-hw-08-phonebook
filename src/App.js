@@ -36,9 +36,19 @@ class App extends Component {
               component={PhonebookView}
               redirectTo={routes.login}
             />
-            <Route path={routes.home} exact component={HomeView} />
-            <Route path={routes.login} exact component={LogInView} />
-            <Route path={routes.register} exact component={RegisterView} />
+            <PublicRoute path={routes.home} exact component={HomeView} />
+            <PublicRoute
+              path={routes.login}
+              restricted
+              component={LogInView}
+              redirectTo={routes.contacts}
+            />
+            <PublicRoute
+              path={routes.register}
+              restricted
+              component={RegisterView}
+              redirectTo={routes.contacts}
+            />
           </Switch>
         </Suspense>
       </Layout>
