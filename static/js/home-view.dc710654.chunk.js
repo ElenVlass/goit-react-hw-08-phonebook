@@ -1,2 +1,0 @@
-(this["webpackJsonpgoit-react-hw-08-phonebook"]=this["webpackJsonpgoit-react-hw-08-phonebook"]||[]).push([[0],{110:function(e,o,n){"use strict";n.r(o);n(0),n(83);var t=n(1);o.default=function(){return Object(t.jsx)("div",{className:"lendosOvervay",children:Object(t.jsx)("h1",{className:"lendosTitle",children:"keep all your contacts in our convenient phonebook"})})}},83:function(e,o,n){}}]);
-//# sourceMappingURL=home-view.dc710654.chunk.js.map
