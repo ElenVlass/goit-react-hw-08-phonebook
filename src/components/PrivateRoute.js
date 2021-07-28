@@ -5,7 +5,7 @@ import { authSelectors } from '../redux/authorization';
 
 /**
  * - Если маршрут приватный и пользователь залогинен, рендерит компонент
- * - В противном случае рендерит Redirect на /login
+ * - В противном случае рендерит Redirect
  */
 const PrivateRoute = ({
   component: Component,

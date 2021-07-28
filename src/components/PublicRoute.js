@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { authSelectors } from '../redux/authorization';
 
 /**
- * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /todos
+ * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект
  * - В противном случае рендерит компонент
  */
 const PublicRoute = ({
